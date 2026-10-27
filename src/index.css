@@ -1,13 +1,281 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-rosegold: #B76E79;
+    --color-rosegold-light: #E8C5C8;
+    --color-rosegold-deep: #964F59;
+    --color-bronze: #8C503A;
+    --color-bronze-light: #C2846F;
+    --color-bronze-dark: #5A3326;
+    --color-champagne: #F3E5AB;
+    --color-champagne-gold: #E5C158;
+    --color-blush: #FFD1DC;
+    --color-peach: #FAD2B8;
+    --color-burgundy: #4A0E17;
+    --color-burgundy-dark: #200408;
+  }
+
+  body {
+    background: radial-gradient(circle at 50% 20%, #380e1a 0%, #1d070e 50%, #0d0205 100%);
+    color: #FDE2E4;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Typography Classes */
+.font-cursive {
+  font-family: 'Great Vibes', cursive;
+  line-height: 1.4;
+  overflow: visible;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.35;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+  line-height: 1.35;
+}
+
+.font-serif-luxury {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-display {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.font-sans-clean {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Glassmorphism Luxury Styling */
+.glass-panel {
+  background: rgba(36, 12, 19, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(232, 197, 200, 0.22);
+  box-shadow: 0 12px 40px 0 rgba(74, 14, 23, 0.45), inset 0 1px 1px 0 rgba(243, 229, 171, 0.2);
+}
+
+.glass-panel-light {
+  background: rgba(255, 240, 243, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(183, 110, 121, 0.35);
+  box-shadow: 0 16px 45px 0 rgba(74, 14, 23, 0.25);
+}
+
+.glass-gold-card {
+  background: linear-gradient(135deg, rgba(65, 20, 31, 0.75) 0%, rgba(35, 10, 16, 0.85) 100%);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 15px 0 rgba(183, 110, 121, 0.25);
+}
+
+.glass-gold-card:hover {
+  border-color: rgba(243, 229, 171, 0.6);
+  box-shadow: 0 15px 40px -5px rgba(183, 110, 121, 0.4), 0 0 25px 0 rgba(229, 193, 88, 0.35);
+}
+
+/* Text Shimmer Effect */
+.text-shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    #F3E5AB 0%,
+    #FFFFFF 25%,
+    #E5C158 50%,
+    #FAD2B8 75%,
+    #F3E5AB 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.text-shimmer-rosegold {
+  background: linear-gradient(
+    90deg,
+    #E8C5C8 0%,
+    #FFF 30%,
+    #B76E79 50%,
+    #FAD2B8 70%,
+    #E8C5C8 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Soft Glow and Float Keyframes */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+@keyframes pulseAura {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+    filter: drop-shadow(0 0 25px rgba(183, 110, 121, 0.5));
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 45px rgba(229, 193, 88, 0.75));
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-aura {
+  animation: pulseAura 3s ease-in-out infinite;
+}
+
+/* Hugging Hearts Animations */
+@keyframes hugSqueezeLeft {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(6deg) scale(1);
+  }
+  50% {
+    transform: translate(3px, -2px) rotate(10deg) scale(1.03);
+  }
+}
+
+@keyframes hugSqueezeRight {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(-6deg) scale(0.95);
+  }
+  50% {
+    transform: translate(-3px, -2px) rotate(-10deg) scale(0.98);
+  }
+}
+
+@keyframes floatHeartUp1 {
+  0% {
+    transform: translate(0, 0) scale(0.7);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-6px, -36px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes floatHeartUp2 {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(8px, -42px) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes floatHeartUp3 {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-2px, -48px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+.animate-hug-left {
+  transform-origin: 92px 152px;
+  animation: hugSqueezeLeft 3s ease-in-out infinite;
+}
+
+.animate-hug-right {
+  transform-origin: 145px 152px;
+  animation: hugSqueezeRight 3s ease-in-out infinite;
+}
+
+.animate-float-h1 {
+  animation: floatHeartUp1 2.8s ease-in infinite;
+}
+
+.animate-float-h2 {
+  animation: floatHeartUp2 3.2s ease-in infinite 0.9s;
+}
+
+.animate-float-h3 {
+  animation: floatHeartUp3 3.6s ease-in infinite 1.8s;
+}
+
+.animate-sparkle-1 {
+  transform-origin: 65px 65px;
+  animation: sparkleTwinkle 2s ease-in-out infinite;
+}
+
+.animate-sparkle-2 {
+  transform-origin: 175px 60px;
+  animation: sparkleTwinkle 2.4s ease-in-out infinite 0.7s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #140407;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8C503A, #B76E79);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #B76E79, #E5C158);
 }
